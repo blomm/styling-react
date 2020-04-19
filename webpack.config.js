@@ -9,10 +9,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   devServer: {
-    port: 3000
+    port: 3000,
   },
   module: {
     rules: [
@@ -23,17 +23,22 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               babelrc: false,
-              presets: ['@babel/preset-react', '@babel/preset-env']
-            }
-          }
+              presets: ['@babel/preset-react', '@babel/preset-env'],
+            },
+          },
         ],
-        include
+        include,
       },
       {
         test: /\.jpg/,
         loaders: ['file-loader'],
-        include
-      }
-    ]
-  }
+        include,
+      },
+      {
+        test: /\.css/,
+        loaders: ['style-loader', 'css-loader', 'postcss-loader'],
+        include,
+      },
+    ],
+  },
 }
