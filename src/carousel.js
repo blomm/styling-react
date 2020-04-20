@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styles from './carousel-styles';
+import PropTypes from 'prop-types'
+import React from 'react'
+import styles from './carousel-styles'
 
 function renderSlides(props) {
   return React.Children.map(props.children, (slide, i) => {
@@ -10,23 +10,24 @@ function renderSlides(props) {
         width: props.width,
         left: props.width * (i - props.showIndex),
       },
-    });
-  });
+    })
+  })
 }
 
 function Carousel(props) {
   return (
-    <div style={styles.root}>
+    // <div style={styles.root}>
+    <div className="dft__carousel">
       {renderSlides(props)}
       {props.nav}
     </div>
-  );
+  )
 }
 
 Carousel.propTypes = {
   nav: PropTypes.node.isRequired,
   showIndex: PropTypes.number,
   width: PropTypes.number,
-};
+}
 
-export default Carousel;
+export default Carousel
